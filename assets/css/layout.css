@@ -45,10 +45,10 @@ main > section { padding: calc(var(--space-lg) - 0.5rem) 0; }
 
 /* HERO (primera sección): grid with gradient + background image example */
 main > section:first-of-type {
-  /* richer hero: layered gradient using palette + image */
-  background: linear-gradient(135deg, var(--gradient-hero-start), var(--gradient-hero-mid) 50%, transparent 70%), linear-gradient(180deg, rgba(199,155,83,0.06), transparent 40%), url('../images/hero.jpg');
+  /* richer hero: layered gradient using palette + image (Ascent hero) */
+  background: linear-gradient(135deg, var(--gradient-hero-start), var(--gradient-hero-mid) 50%, transparent 70%), linear-gradient(180deg, rgba(199,155,83,0.06), transparent 40%), url('../images/ascent.jpg');
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: center center;
   background-size: cover;
 }
 main > section:first-of-type > div:first-of-type {
@@ -164,7 +164,7 @@ footer[role="contentinfo"] > div {
   border-radius: var(--radius-md);
   position: relative;
   background: linear-gradient(140deg, rgba(11,34,57,0.65), rgba(31,59,87,0.38)),
-    url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=720&q=80');
+    url('../images/ascent.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 20px 48px rgba(11,34,57,0.16);
@@ -259,8 +259,8 @@ footer[role="contentinfo"] > div {
 .product-visual {
   background: linear-gradient(125deg, rgba(11,34,57,0.9), rgba(31,59,87,0.65));
   border-radius: var(--radius-lg, 20px);
-  box-shadow: 0 24px 60px rgba(11,34,57,0.18);
-  min-height: clamp(320px, 38vw, 460px);
+  box-shadow: 0 30px 80px rgba(11,34,57,0.22);
+  min-height: clamp(380px, 48vw, 560px);
 }
 
 .product-actions { justify-content: flex-start; gap: var(--space-md); }
