@@ -146,4 +146,80 @@ input:invalid { border-color: var(--color-danger); }
 .stack { display: flex; flex-direction: column; gap: var(--space-sm); }
 .row { display:flex; gap: var(--space-sm); align-items:center; }
 
+/* utility to hide filtered items */
+.hidden { display: none !important; }
+
+/* Catalog filter controls (CSS-only filtering using radio inputs) */
+.catalog-filters {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: nowrap;
+  margin: 0 0 var(--space-md) 0;
+  align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-input { position: absolute; left: -9999px; }
+.catalog-filters .filter-label {
+  padding: calc(var(--space-xs) / 1.2) var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: color-mix(in srgb, white 94%, var(--color-primary) 6%);
+  color: var(--color-secondary);
+  font-weight: 700;
+  border: 1px solid rgba(11,34,57,0.06);
+}
+.catalog-filters .filter-label:hover { background: color-mix(in srgb, var(--color-primary) 8%, white); color: var(--color-primary); }
+
+/* Active state: style the label that corresponds to the checked radio (inputs are siblings of .catalog-grid) */
+#filter-all:checked ~ .catalog-filters label[for="filter-all"],
+#filter-sastreria:checked ~ .catalog-filters label[for="filter-sastreria"],
+#filter-casual:checked ~ .catalog-filters label[for="filter-casual"],
+#filter-accesorios:checked ~ .catalog-filters label[for="filter-accesorios"],
+#filter-calzado:checked ~ .catalog-filters label[for="filter-calzado"] {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 8px 18px rgba(11,34,57,0.12);
+  transform: translateY(-2px);
+}
+
+/* Ensure offer badges are centered inside their card */
+.offers-grid .offer-card .offer-badge,
+.offer-card .offer-badge {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Keep filter labels on a single line and avoid wrapping text inside them */
+.catalog-filters .filter-label {
+  white-space: nowrap;
+}
+
+/* Fallback centering: center inline content in the offer card, but keep headings and text left-aligned */
+.offer-card {
+  text-align: center;
+}
+.offer-card .offer-badge {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+.offer-card > h3,
+.offer-card > p,
+.offer-card > a {
+  text-align: left;
+}
+
+/* Filtering rules: hide non-matching product cards using general sibling selectors */
+#filter-sastreria:checked ~ .catalog-grid article:not([data-category="sastreria"]) { display: none; }
+#filter-casual:checked ~ .catalog-grid article:not([data-category="casual"]) { display: none; }
+#filter-accesorios:checked ~ .catalog-grid article:not([data-category="accesorios"]) { display: none; }
+#filter-calzado:checked ~ .catalog-grid article:not([data-category="calzado"]) { display: none; }
+/* 'All' shows everything (inputs default behavior keeps items shown) */
+#filter-all:checked ~ .catalog-grid article { display: grid; }
+
+/* Smoothness for showing/hiding (optional) */
+.catalog-grid article { transition: opacity 220ms var(--ease-std), transform 220ms var(--ease-std); }
+.catalog-grid article[style*="display: none"] { opacity: 0; transform: scale(0.99); }
+
 

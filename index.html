@@ -48,15 +48,23 @@
       <section id="catalogo">
         <div class="container catalog-section">
           <h2>Colección destacada</h2>
-          <ul class="catalog-categories">
-            <li><a href="#">Sastrería</a></li>
-            <li><a href="#">Casual</a></li>
-            <li><a href="#">Accesorios</a></li>
-            <li><a href="#">Calzado</a></li>
-          </ul>
+          <div class="catalog-filters" role="tablist" aria-label="Filtros de categoría">
+            <label for="filter-all" class="filter-label">Todos</label>
+            <label for="filter-sastreria" class="filter-label">Sastrería</label>
+            <label for="filter-casual" class="filter-label">Casual</label>
+            <label for="filter-accesorios" class="filter-label">Accesorios</label>
+            <label for="filter-calzado" class="filter-label">Calzado</label>
+          </div>
+
+          <!-- radio inputs placed as siblings of .catalog-grid so CSS selectors can target the grid -->
+          <input type="radio" id="filter-all" name="category" class="filter-input" checked />
+          <input type="radio" id="filter-sastreria" name="category" class="filter-input" />
+          <input type="radio" id="filter-casual" name="category" class="filter-input" />
+          <input type="radio" id="filter-accesorios" name="category" class="filter-input" />
+          <input type="radio" id="filter-calzado" name="category" class="filter-input" />
 
           <div class="catalog-grid">
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="sastreria" tabindex="0">
               <div></div>
               <div>
                 <h3>Blazer italiano slim fit</h3>
@@ -64,7 +72,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="casual" tabindex="0">
               <div></div>
               <div>
                 <h3>Camisa oxford premium</h3>
@@ -72,7 +80,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="casual" tabindex="0">
               <div></div>
               <div>
                 <h3>Pantalón chino clásico</h3>
@@ -80,7 +88,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="casual" tabindex="0">
               <div></div>
               <div>
                 <h3>Suéter de lana merino</h3>
@@ -88,7 +96,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="calzado" tabindex="0">
               <div></div>
               <div>
                 <h3>Zapatos Derby cuero</h3>
@@ -96,7 +104,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="accesorios" tabindex="0">
               <div></div>
               <div>
                 <h3>Cinturón de piel italiano</h3>
@@ -104,7 +112,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="casual" tabindex="0">
               <div></div>
               <div>
                 <h3>Polo manga larga</h3>
@@ -112,7 +120,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="sastreria" tabindex="0">
               <div></div>
               <div>
                 <h3>Abrigo de paño inglés</h3>
@@ -120,7 +128,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="casual" tabindex="0">
               <div></div>
               <div>
                 <h3>Jean oscuro premium</h3>
@@ -128,7 +136,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="calzado" tabindex="0">
               <div></div>
               <div>
                 <h3>Mocasines de ante</h3>
@@ -136,7 +144,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="accesorios" tabindex="0">
               <div></div>
               <div>
                 <h3>Bufanda de cachemira</h3>
@@ -144,7 +152,7 @@
                 <button class="btn btn-outline">Ver detalle</button>
               </div>
             </article>
-            <article class="product-card animate-fade-in" tabindex="0">
+            <article class="product-card animate-fade-in" data-category="accesorios" tabindex="0">
               <div></div>
               <div>
                 <h3>Reloj minimalista acero</h3>
