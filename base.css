@@ -8,19 +8,20 @@
 /*
   Paleta elegida (justificación para marca de moda masculina, gama media-alta):
   - #0B2239 (azul noche): transmite sobriedad y confianza en productos de buena calidad.
+  - #1F3B57 (azul petróleo): matiz secundario que aporta profundidad sin perder sobriedad.
   - #C79B53 (oro cálido): acento elegante que sugiere cuidado y valor sin ser ostentoso.
-  - escala de grises (#F7F7F7 → #111827): para buen contraste y lectura.
   Tipografías: "Courier New", Consolas, monospace — una decisión deliberada para dar
   un carácter técnico, masculino y distintivo a la marca, manteniendo legibilidad y personalidad.
 */
 
 :root {
   /* colores */
-  --color-bg: #F7F7F7;
+  --color-bg: #F4F6F8;
   --color-surface: #FFFFFF;
   --color-ink: #111827;
   --color-muted: #6B7280;
   --color-primary: #0B2239; /* azul noche */
+  --color-secondary: #1F3B57; /* azul petróleo */
   --color-accent: #C79B53;  /* oro cálido */
   --color-success: #1F7A3A;
   --color-danger: #B00020;
@@ -36,6 +37,7 @@
   /* radios y sombras */
   --radius-sm: 6px;
   --radius-md: 12px;
+  --radius-lg: 20px;
   --card-shadow: 0 6px 18px rgba(11,34,57,0.08), 0 2px 6px rgba(11,34,57,0.04);
 
   /* z-index */
@@ -70,10 +72,14 @@ body {
   font-size: 16px;
   color: var(--color-ink);
   background-color: var(--color-bg);
+  background-image: radial-gradient(circle at 0% 0%, rgba(199,155,83,0.08), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(11,34,57,0.08), transparent 50%);
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html { scroll-behavior: smooth; }
 
 /* Accessible focus states */
 :focus {
@@ -91,6 +97,18 @@ body {
   padding-inline: max(var(--space-sm), calc(1vw + 0.5rem));
   padding-block: 0;
 }
+
+main > section { scroll-margin-top: 88px; }
+
+.brand-mark {
+  font-weight: 800;
+  font-size: var(--fs-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.eyebrow { font-size: var(--fs-xs); letter-spacing: 0.3em; text-transform: uppercase; }
 
 /* type helpers */
 h1, h2, h3, h4, h5 {
